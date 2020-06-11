@@ -30,3 +30,5 @@ out/
 
 ### VS Code ###
 .vscode/
+/solr_home/cores/products/data/*
+/solr_home/cores/users/data/*
