@@ -18,17 +18,14 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.data:spring-data-solr:4.2.0.RELEASE'
 
 	implementation "org.slf4j:jcl-over-slf4j:1.7.25"
 	implementation "org.slf4j:jul-to-slf4j:1.7.25"
 	implementation "org.slf4j:slf4j-api:1.7.25"
 
-	compile group: 'net.minidev', name: 'json-smart', version: '2.3'
+	compile 'net.minidev:json-smart:2.3'
 
-
-	compile 'mysql:mysql-connector-java:8.0.20'
 	implementation 'org.apache.solr:solr-core:8.5.2'
 
 	implementation 'org.codehaus.groovy:groovy'

@@ -1,16 +1,14 @@
 package vn.foo.foogroovy.api
 
-
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import vn.foo.foogroovy.domain.User
-import vn.foo.foogroovy.domain.UserRepo
+import vn.foo.foogroovy.repo.solr.UserRepo
 
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/solr/users")
 class GetUser {
 
     @Autowired
@@ -18,11 +16,14 @@ class GetUser {
 
     @GetMapping
     List<User> allUsers() {
-        userRepo.findAll()
+        userRepo.findAll().asList()
     }
 
-    @GetMapping("/{id}")
-    User getById(@PathVariable("id") Integer id) {
-        userRepo.findById id;
+    @GetMapping("/_add")
+    User addNew() {
+        User solrUser = new User();
+        solrUser.id = UUID.randomUUID().toString()
+        solrUser.name = UUID.randomUUID().toString()
+        userRepo.save(solrUser);
     }
 }

@@ -1,11 +1,11 @@
-package vn.foo.foogroovy.repo.solr
+package vn.foo.foogroovy.domain
 
 import org.springframework.data.annotation.Id
 import org.springframework.data.solr.core.mapping.Indexed
 import org.springframework.data.solr.core.mapping.SolrDocument
 
 @SolrDocument(collection = "products")
-class SolrProduct {
+class Product {
     @Id
     @Indexed(name = "id", type = "integer")
     String id;
@@ -16,7 +16,7 @@ class SolrProduct {
     @Indexed(name = "createdAt", type = "date")
     Date createdAt;
 
-    SolrProduct() {
+    Product() {
         createdAt = new Date()
     }
 }

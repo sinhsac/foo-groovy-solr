@@ -1,6 +1,7 @@
 package vn.foo.foogroovy.repo.solr
 
 import org.springframework.data.solr.repository.SolrCrudRepository
+import vn.foo.foogroovy.domain.User
 
-interface SolrUserRepo extends SolrCrudRepository<SolrUser, String> {
+interface UserRepo extends SolrCrudRepository<User, String> {
 }

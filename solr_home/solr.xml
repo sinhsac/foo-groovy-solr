@@ -10,5 +10,4 @@
 		<str name="shardsWhitelist">${solr.shardsWhitelist:}</str>
 	</shardHandlerFactory>
 
-
 </solr>

@@ -1,15 +1,23 @@
 package vn.foo.foogroovy.domain
 
-import javax.persistence.*
+import org.springframework.data.annotation.Id
+import org.springframework.data.solr.core.mapping.Indexed
+import org.springframework.data.solr.core.mapping.SolrDocument
 
-@Entity
-@Table(name = "users")
+@SolrDocument(collection = "users")
 class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id
+    @Indexed(name = "id", type = "integer")
+    String id;
 
-    @Column(length = 999999)
-    String text
+    @Indexed(name = "userName", type = "string")
+    String name;
+
+    @Indexed(name = "createdAt", type = "date")
+    Date createdAt;
+
+    User() {
+        createdAt = new Date()
+    }
 }

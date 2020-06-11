@@ -4,24 +4,23 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
-import vn.foo.foogroovy.repo.solr.SolrProduct
-import vn.foo.foogroovy.repo.solr.SolrProductRepo
-import vn.foo.foogroovy.repo.solr.SolrUser
+import vn.foo.foogroovy.domain.Product
+import vn.foo.foogroovy.repo.solr.ProductRepo
 
 @RestController
 @RequestMapping("/solr/products")
-class GetSolrProduct {
+class GetProduct {
     @Autowired
-    SolrProductRepo productRepo
+    ProductRepo productRepo
 
     @GetMapping
-    List<SolrProduct> allUsers() {
+    List<Product> allUsers() {
         productRepo.findAll().asList()
     }
 
     @GetMapping("/_add")
-    SolrProduct addNew() {
-        SolrProduct solrProduct = new SolrProduct();
+    Product addNew() {
+        Product solrProduct = new Product();
         solrProduct.id = UUID.randomUUID().toString()
         solrProduct.name = UUID.randomUUID().toString()
         productRepo.save solrProduct
