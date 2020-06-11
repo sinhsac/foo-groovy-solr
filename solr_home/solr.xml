@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<solr>
+	<int name="maxBooleanClauses">${solr.max.booleanClauses:1024}</int>
+	<str name="shareSchema">${shareSchema:true}</str>
+	<str name="sharedLib">${solr.sharedLib:}</str>
+	
+	<shardHandlerFactory name="shardHandlerFactory" class="HttpShardHandlerFactory">
+		<int name="socketTimeout">${socketTimeout:600000}</int>
+		<int name="connTimeout">${connTimeout:60000}</int>
+		<str name="shardsWhitelist">${solr.shardsWhitelist:}</str>
+	</shardHandlerFactory>
+
+
+</solr>

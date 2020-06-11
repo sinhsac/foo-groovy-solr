@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema name="products-config" version="1.6">
+    <uniqueKey>id</uniqueKey>
+    <fieldType name="uuid"    class="solr.UUIDField"        indexed="true" />
+    <fieldType name="string"  class="solr.StrField" sortMissingLast="true" />
+    <fieldType name="strings" class="solr.StrField" sortMissingLast="true" multiValued="true"/>
+    <fieldType name="boolean" class="solr.BoolField" sortMissingLast="true"/>
+    <fieldType name="binary"  class="solr.BinaryField"/>
+    <fieldType name="int"     class="solr.IntPointField"    docValues="true"/>
+    <fieldType name="pint"    class="solr.IntPointField"    docValues="true" multiValued="true"/>
+    <fieldType name="float"   class="solr.FloatPointField"  docValues="true"/>
+    <fieldType name="pfloat"  class="solr.FloatPointField"  docValues="true" multiValued="true"/>
+    <fieldType name="long"    class="solr.LongPointField"   docValues="true"/>
+    <fieldType name="plong"   class="solr.LongPointField"   docValues="true" multiValued="true"/>
+    <fieldType name="double"  class="solr.DoublePointField" docValues="true"/>
+    <fieldType name="pdouble" class="solr.DoublePointField" docValues="true" multiValued="true"/>
+    <fieldType name="date"  class="solr.DatePointField" docValues="true"/>
+    <fieldType name="pdate" class="solr.DatePointField" docValues="true" multiValued="true"/>
+    <fieldType name="location"      class="solr.LatLonPointSpatialField" docValues="true" />
+    <fieldType name="location_rpt"  class="solr.SpatialRecursivePrefixTreeFieldType" geo="true" maxDistErr="0.001" distErrPct="0.025" distanceUnits="kilometers"/>
+    <fieldType name="random"   class="solr.RandomSortField"  indexed="true" />
+    <fieldType name="ignored" stored="false" indexed="false" multiValued="true" class="solr.StrField" />
+
+
+    <field name="id" type="string" indexed="true" stored="true"  />
+    <field name="productName" type="string" indexed="true" stored="true" />
+    <field name="createdAt" type="date" indexed="true" stored="true" />
+</schema>
